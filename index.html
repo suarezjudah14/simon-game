@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#011f3f">
+  <meta name="description" content="Watch, remember, and repeat. Play the classic Simon memory game, built with JavaScript and jQuery.">
+  <title>Simon | The Memory Game</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/PressStart2P-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Simon home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>SIMON<span class="brand-dot">.</span></span>
+      </a>
+      <div class="topbar-tools">
+        <p class="best-score">BEST <span id="best-score">00</span></p>
+        <button id="sound-toggle" class="sound-toggle" type="button" aria-label="Mute sound" aria-pressed="false" title="Mute sound">
+          <svg class="sound-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z" stroke-linejoin="round"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14" stroke-linecap="round"/></svg>
+          <svg class="sound-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z" stroke-linejoin="round"/><path d="m16 9 6 6m0-6-6 6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="game" aria-label="Simon memory game">
+        <p class="eyebrow"><span aria-hidden="true"></span> A LITTLE FOCUS. A LONGER PATTERN.</p>
+        <div class="title-area">
+          <h1 id="level-title">Press A Key to Start</h1>
+        </div>
+        <p id="game-status" class="game-status" role="status" aria-live="polite" aria-atomic="true">How far can your memory take you?</p>
+
+        <div class="board" role="group" aria-label="Game pads. Green 1, red 2, yellow 3, blue 4.">
+          <button class="btn green" id="green" type="button" aria-label="Green, key 1" aria-keyshortcuts="1" disabled><span>GREEN</span><kbd>1</kbd></button>
+          <button class="btn red" id="red" type="button" aria-label="Red, key 2" aria-keyshortcuts="2" disabled><span>RED</span><kbd>2</kbd></button>
+          <button class="btn yellow" id="yellow" type="button" aria-label="Yellow, key 3" aria-keyshortcuts="3" disabled><span>YELLOW</span><kbd>3</kbd></button>
+          <button class="btn blue" id="blue" type="button" aria-label="Blue, key 4" aria-keyshortcuts="4" disabled><span>BLUE</span><kbd>4</kbd></button>
+          <span class="board-center" aria-hidden="true">+</span>
+        </div>
+
+        <div class="controls">
+          <button id="start-button" class="start-button" type="button"><span id="start-label">Start game</span><span aria-hidden="true">↗</span></button>
+          <p id="keyboard-hint" class="keyboard-hint">or press any key to begin</p>
+        </div>
+      </section>
+
+      <section class="how-to" aria-label="How to play">
+        <div><span class="step-number">01</span><p><strong>Watch the color.</strong><span>One new color appears each round.</span></p></div>
+        <div><span class="step-number">02</span><p><strong>Remember the pattern.</strong><span>Keep every previous color in mind.</span></p></div>
+        <div><span class="step-number">03</span><p><strong>Repeat. Then repeat.</strong><span>Play the whole pattern in order.</span></p></div>
+      </section>
+    </main>
+
+    <noscript><p class="noscript">Please enable JavaScript in your browser to play Simon.</p></noscript>
+  </div>
+  <script src="vendor/jquery-3.7.1.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
